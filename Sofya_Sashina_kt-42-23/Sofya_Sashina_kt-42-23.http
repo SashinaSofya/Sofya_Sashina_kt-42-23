@@ -1,0 +1,6 @@
+@Sofya_Sashina_kt_42_23_HostAddress = http://localhost:5090
+
+GET {{Sofya_Sashina_kt_42_23_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
