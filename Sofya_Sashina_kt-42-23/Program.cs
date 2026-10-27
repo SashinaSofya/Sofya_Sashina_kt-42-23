@@ -1,5 +1,8 @@
 using NLog;
 using NLog.Web;
+using Microsoft.EntityFrameworkCore;
+using Sofya_Sashina_kt_42_23.Database;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +15,10 @@ try
 {
     builder.Logging.ClearProviders();
     builder.Host.UseNLog();
+
+    builder.Services.AddDbContext<StudentDbContext>(options =>
+    options.UseNpgsql(
+        builder.Configuration.GetConnectionString("StudentDbContext")));
 
     // Add services to the container.
     builder.Services.AddControllers();
